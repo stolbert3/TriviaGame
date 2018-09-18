@@ -1,5 +1,35 @@
-body {
+.jumbotron {
     text-align: center;
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+
+.timer {
+    position: fixed;
+    background: black;
+    color: floralwhite;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    left: 10px;
+}
+
+.question {
+    text-align: center;
+    background: grey;
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.answers {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    background: aquamarine;
+    padding: 10px;
 }
 
 /*.question {

@@ -12,104 +12,28 @@
 
     <div class="jumbotron">
         <h1>Trivia Game</h1>
+        <h3>You will have 30 seconds to answer each question. Press START to begin!</h3>
+        <div class="button">
+            <button id="startButton" class="btn"><h3>START</h3></button>
+        </div>
     </div>
 
-    <div class="instructions">
-        <h3>Instructions</h3>
+    <div class="timer">
+        <h5>Time remaining:</h5>
+        <h3 id="timeLeft">--:--</h3>
     </div>
 
-    <div class="question">
-        <div class="questionOne">
-            <h3>Question One</h3>
-            <div class="answersOne">
-                <p id="oneA">A</p>
-                <p id="oneB">B</p>
-                <p id="oneC">C</p>
-                <p id="oneD">D</p>
-            </div>
-        </div>
-        <div class="questionTwo">
-            <h3>Question Two</h3>
-            <div class="answersTwo">
-                <p id="twoA">A</p>
-                <p id="twoB">B</p>
-                <p id="twoC">C</p>
-                <p id="twoD">D</p>
-            </div>
-        </div>
-        <div class="questionThree">
-            <h3>Question Three</h3>
-            <div class="answersThree">
-                <p id="threeA">A</p>
-                <p id="threeB">B</p>
-                <p id="threeC">C</p>
-                <p id="threeD">D</p>
-            </div>
-        </div>
-        <div class="questionFour">
-            <h3>Question Four</h3>
-            <div class="answersFour">
-                <p id="fourA">A</p>
-                <p id="fourB">B</p>
-                <p id="fourC">C</p>
-                <p id="fourD">D</p>
-            </div>
-        </div>
-        <div class="questionFive">
-            <h3>Question Five</h3>
-            <div class="answersFive">
-                <p id="fiveA">A</p>
-                <p id="fiveB">B</p>
-                <p id="fiveC">C</p>
-                <p id="fiveD">D</p>
-            </div>
-        </div>
-        <div class="questionSix">
-            <h3>Question Six</h3>
-            <div class="answersSix">
-                <p id="sixA">A</p>
-                <p id="sixB">B</p>
-                <p id="sixC">C</p>
-                <p id="sixD">D</p>
-            </div>
-        </div>
-        <div class="questionSeven">
-            <h3>Question Seven</h3>
-            <div class="answersSeven">
-                <p id="sevenA">A</p>
-                <p id="sevenB">B</p>
-                <p id="sevenC">C</p>
-                <p id="sevenD">D</p>
-            </div>
-        </div>
-        <div class="questionEight">
-            <h3>Question Eight</h3>
-            <div class="answersEight">
-                <p id="eightA">A</p>
-                <p id="eightB">B</p>
-                <p id="eightC">C</p>
-                <p id="eightD">D</p>
-            </div>
-        </div>
-        <div class="questionNine">
-            <h3>Question Nine</h3>
-            <div class="answersNine">
-                <p id="nineA">A</p>
-                <p id="nineB">B</p>
-                <p id="nineC">C</p>
-                <p id="nineD">D</p>
-            </div>
-        </div>
-        <div class="questionTen">
-            <h3>Question Ten</h3>
-            <div class="answersTen">
-                <p id="tenA">A</p>
-                <p id="tenB">B</p>
-                <p id="tenC">C</p>
-                <p id="tenD">D</p>
-            </div>
+    <div class="quizQuestion">
+        <div id="question"></div>
+        <div class="answer">
+            <button id="buttonA" class="btn btn-outline-primary">A</button>
+            <button id="buttonB" class="btn btn-outline-primary">B</button>
+            <button id="buttonC" class="btn btn-outline-primary">C</button>
+            <button id="buttonD" class="btn btn-outline-primary">D</button>
         </div>
     </div>
+
+    <div class="finalScore"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
