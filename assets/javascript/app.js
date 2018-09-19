@@ -27,8 +27,9 @@ $(document).ready(function() {
     //on click of start button, showQuestions();
     $('#startButton').on('click', function() {
         $('.button').hide(); //hide start button
+        $('.quizQuestion').show();
+        $('.timer').show();
         console.log("Game Started");
-        $('.quizQuestion').style.visibility = 'visible';
         showQuestions(); //makes first set of questions appear
         //start timer
     });
