@@ -1,58 +1,87 @@
 $(document).ready(function() {
-    var questionIndex = 0;
+    var i = 0;
     var quizScore = 0;
-    var timerCount = 30;
-    var quizQuestions = [
-        {
+    var userResponse = '';
+    var correctAnswer = '';
+    var quizQuestions = [{   
             prompt: "Question 1",
             choices: ["(a)", "(b)", "(c)", "(d)"],
-            answer: "(a)"
+            answer: "A"
         },
         {
             prompt: "Question 2",
             choices: ["(a)", "(b)", "(c)", "(d)"],
-            answer: "(b)"
+            answer: "B"
         },
         {
             prompt: "Question 3",
             choices: ["(a)", "(b)", "(c)", "(d)"],
-            answer: "(c)"
+            answer: "C"
         },
         {
             prompt: "Question 4",
             choices: ["(a)", "(b)", "(c)", "(d)"],
-            answer: "(d)"
-        }
-    ];
+            answer: "D"
+    }];
 
     var possibleScore = quizQuestions.length;
 
     /*on click of start button, showQuestions();*/
     $('#startButton').on('click', function() {
-        $('#startButton').empty();
+        //$('#startButton').empty();
         console.log("Game Started");
         showQuestions();
+        /*start timer*/
+    });
+
+    
+    $('.answer').on('click', function() {
+        correctAnswer = quizQuestions[i].answer;
+        getCheckedValue();
+        console.log(userResponse);
+
+        gradeQuestion();
+
+        if (i < quizQuestions.length - 1) {
+            i++;
+            showQuestions();
+            console.log("answered");
+            console.log(i);
+            console.log("correctAnswer" + correctAnswer);
+        }
+    
+        else {
+            alert("Game Over!");
+            $(".quizQuestion").empty();
+            $(".timer").empty();
+            $(".finalScore").text(quizScore + "/" + possibleScore);
+        }
     });
 
     function showQuestions() {
-        for (var i=0; i < quizQuestions.length; i++) {
-            $("#question").text(quizQuestions[i].prompt);
-            $("#buttonA").text(quizQuestions[i].choices[0]);
-            $("#buttonB").text(quizQuestions[i].choices[1]);
-            $("#buttonC").text(quizQuestions[i].choices[2]);
-            $("#buttonD").text(quizQuestions[i].choices[3]);
+        $("#question").text(quizQuestions[i].prompt);
+        $("#A").text(quizQuestions[i].choices[0]);
+        $("#B").text(quizQuestions[i].choices[1]);
+        $("#C").text(quizQuestions[i].choices[2]);
+        $("#D").text(quizQuestions[i].choices[3]);
+        console.log("looped");
+        console.log(i);
+        //$('.answer').on('click', showQuestions());
+        /*start timer, set timeout*/
 
-            /*start timer*/
-
-            gradeQuestion();
-
-            questionIndex++;
-        };
     };
 
+    function getCheckedValue(){
+        var radios = document.getElementsByName("radio"); // Get radio group by-name
+        for(var y=0; y<radios.length; y++) {
+            if(radios[y].checked){
+                userResponse = radios[y].value;
+            }
+        } // return the checked value
+    }
+
     function gradeQuestion() {
-        var userResponse = $(".answer").click();
-        if (userResponse === quizQuestions[questionIndex].answer) {
+        if (userResponse === correctAnswer) {
             quizScore ++;
             alert("Correct!");
         }
@@ -60,26 +89,14 @@ $(document).ready(function() {
             alert("Wrong!");
         }
     };
-
-    $(".quizQuestion").empty();
-    $(".timer").empty();
-    $(".finalScore").text(quizScore + "/" + possibleScore);
     /*add restart button*/
 
 });
 
-        /*var i;
-        var questionList = document.getElementsByClassName("question");
-        for (i = 0; i < questionList.length; i++) {
-            questionList[i].style.display = "none"; 
-        }
-        questionIndex++;
-        if (questionIndex > questionList.length) {questionIndex = 1} 
-        questionList[questionIndex-1].style.display = "block"; 
+        /*
         setTimeout(showQuestions, 2000); // Change image every 2 seconds
     }
     
-    var possibleScore = quizQuestions.length;
 
     for (var i=0; i < quizQuestions.length; i++) {
         var userResponse = window.prompt(quizQuestions[i].prompt);
